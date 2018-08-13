@@ -1,2 +1,2 @@
-# design-patterns-in-c-
+# design-patterns-in-c++-
 A study on desgin patterns in c++.
