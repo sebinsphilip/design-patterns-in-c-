@@ -12,6 +12,7 @@ class Duck {
     public:
     FlyBehaviour * poFly;
     void performFly ();
+    void setFlyBehaviour (FlyBehaviour *fb);
     void swim ();
 };
 

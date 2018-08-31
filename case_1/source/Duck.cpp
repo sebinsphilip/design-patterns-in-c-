@@ -11,3 +11,13 @@ void Duck::swim ()
 {
     cout << "swim is common for all ducks" << std::endl ;
 }
+
+//setter method
+void Duck::setFlyBehaviour (FlyBehaviour *fb)
+{
+    if (NULL != fb)
+    {
+        poFly = fb;
+        cout << "FlyBehaviour set success" << std::endl;
+    }
+}

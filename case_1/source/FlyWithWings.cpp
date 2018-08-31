@@ -3,6 +3,6 @@
 //implementation of interface
 void FlyWithWings::fly ()
 {
-    cout << "Fly with wings" << std::endl;
+    cout << " I'm Flying with wings" << std::endl;
 
 }

@@ -4,6 +4,6 @@
 void FlyNoWay::fly ()
 {
     //cant fly
-    cout << "I cant fly" << std::endl;
+    cout << " I cant fly" << std::endl;
 
 }
