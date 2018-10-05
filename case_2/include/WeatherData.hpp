@@ -9,14 +9,17 @@
 //concrete Subject implementation
 class WeatherData: public Subject
 {
-    //state variables whose change will be notified
-    std::vector<Observer> mObserverList;
-    DataClass *poData;
+  //state variables whose change will be notified
+  DataClass *poData;
+  std::vector<Observer> mObserverList;
 
-    public:
+ public:
 
-    void measurementsChanged ();
-    void setMeasurements (DataClass);
+  void measurementsChanged ();
+  void setMeasurements (DataClass);
+
+  //utility
+  void listAllObservers ();
 
 }
 

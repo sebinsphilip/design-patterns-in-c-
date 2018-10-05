@@ -2,46 +2,73 @@
 
 WeatherData::WeatherData ()
 {
-    mObserverList = new std::vector<Observer>();
-    poData = new Data(0,0,0);
+  mObserverList = new std::vector<Observer>();
+  poData = new Data(0,0,0);
 }
 
 void WeatherData::registerObserver (Observer ob)
 {
-    if (NULL != mObserverList)
-    {
-        mObserverList.push_back (ob);
-        cout << "Successfully registered Observer!" << std::endl;
-    }
-
+  if (NULL != mObserverList)
+  {
+    mObserverList.push_back (ob);
+    cout << "Successfully registered Observer!" << std::endl;
+    listAllObservers();
+  }
 }
 
 void WeatherData::removeObserver (Observer ob)
 {
-    if (NULL != mObserverList)
+  if (NULL != mObserverList)
+  {
+    for (auto it = mObserverList.begin(), it != mObserverList.end(); i++)
     {
-        for (auto it = mObserverList.begin(), auto i = 0; i < mObserverList.size(); i++)
-        {
-            if (it.at(i) == ob)
-            {
-                cout << "removing observer success" << std::endl;
-            }
-        }
+      if (*it == ob)
+      {
+        mObserverList.erase (it);
+        cout << "removing observer success" << std::endl;
+      }
     }
-
+    listAllObservers();
+  }
 }
 
 void WeatherData::notifyAllObservers ()
 {
-    for (auto i = mObserverList.begin(); i < mObserverList.size(); i++)
+  if (getState())
+  {
+    for (auto i = mObserverList.begin(); i != mObserverList.end(); i++)
     {
-        i.update (this, );
+      *i.update (this, poData);
     }
-
+    resetState();
+  }
 }
 
 void WeatherData::measurementsChanged ()
 {
-    notifyAllObservers ();
+  setState ();
+  notifyAllObservers ();
+}
+
+void WeatherData::listAllObservers ()
+{
+  cout << " ###### Observer list ######" << std::endl;
+  for (auto i = mObserverList.begin() ; i != mObserverList.end(); i++)
+  {
+    cout << "> " << *i;
+  }
+  cout << std::endl;
+}
+
+void WeatherData::setMeasurements (DataClass data)
+{
+  if (NULL != poData)
+  {
+    poData->setTemprature (data.getTemprature ());
+    poData->setHumidity (data.getHumidity ());
+    poData->setPressure (data.getPressure ());
+    cout << "Measurements set success" << std::endl;
+    measurementsChanged ();
+  }
 }
 

@@ -9,21 +9,21 @@ using namespace std;
 //interface
 class Subject {
 
-    //only fire event, if state is changed
-    bool stateChanged = false;
-    /*TODO: can extend the Subject interface to maintain the Observer list as well
-            instead of delegating the responsibiliy to concrete class implementation */
+  //only fire event, if state is changed
+  bool stateChanged = false;
+  /*TODO: can extend the Subject interface to maintain the Observer list as well
+    instead of delegating the responsibiliy to concrete class implementation */
 
-    public:
-    // main 3 methods for Publisher
-    virtual void registerObserver (Observer o) = 0;
-    virtual void removeObserver (Observer o) = 0;
-    virtual void notifyAllObservers (Subject subject, void* data) = 0;
+ public:
+  // main 3 methods for Publisher
+  virtual void registerObserver (Observer o) = 0;
+  virtual void removeObserver (Observer o) = 0;
+  virtual void notifyAllObservers (Subject subject, void* data) = 0;
 
-    //optional state management
-    void setState ();
-    void resetState ();
-    bool getState ();
+  //optional state management
+  void setState ();
+  void resetState ();
+  bool getState ();
 };
 
 #endif

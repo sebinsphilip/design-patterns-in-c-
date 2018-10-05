@@ -7,10 +7,10 @@ using namespace std;
 
 //interface
 class Observer {
-    public:
+ public:
 
-        //callback method to get notified
-        virtual void update (Subject subject, void* data) = 0;
+   //callback method to get notified
+   virtual void update (Subject subject, void* data) = 0;
 };
 
 #endif
