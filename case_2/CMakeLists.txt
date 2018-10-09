@@ -10,5 +10,8 @@ include_directories (
 add_executable (
     ${BIN_NAME}
 
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/Main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/source/Subject.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/CurrentConditionsDisplay.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/WeatherData.cpp
     )

@@ -12,7 +12,7 @@ class DataClass
   DataClass ();
   DataClass (int t, int h, int p)
   {
-    mTempratue = t;
+    mTemprature = t;
     mPressure = p;
     mHumidity = h;
   }
@@ -30,7 +30,7 @@ class DataClass
   {
     return mPressure;
   }
-  void setTempratur (int t)
+  void setTemprature (int t)
   {
     mTemprature = t;
   }

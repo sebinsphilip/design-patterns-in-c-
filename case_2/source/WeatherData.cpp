@@ -2,11 +2,11 @@
 
 WeatherData::WeatherData ()
 {
-  mObserverList = new std::vector<Observer>();
-  poData = new Data(0,0,0);
+  //mObserverList = new std::vector<Observer*>();
+  poData = new DataClass(0,0,0);
 }
 
-void WeatherData::registerObserver (Observer ob)
+void WeatherData::registerObserver (Observer *ob)
 {
   if (NULL != mObserverList)
   {
@@ -16,7 +16,7 @@ void WeatherData::registerObserver (Observer ob)
   }
 }
 
-void WeatherData::removeObserver (Observer ob)
+void WeatherData::removeObserver (Observer *ob)
 {
   if (NULL != mObserverList)
   {
@@ -38,7 +38,7 @@ void WeatherData::notifyAllObservers ()
   {
     for (auto i = mObserverList.begin(); i != mObserverList.end(); i++)
     {
-      *i.update (this, poData);
+      *i->update (this, poData);
     }
     resetState();
   }

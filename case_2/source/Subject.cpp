@@ -1,5 +1,10 @@
 #include "Subject.hpp"
 
+Subject::Subject ()
+{
+  stateChanged = false;
+}
+
 void Subject::setState ()
 {
     stateChanged = true;

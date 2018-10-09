@@ -10,15 +10,16 @@ using namespace std;
 class Subject {
 
   //only fire event, if state is changed
-  bool stateChanged = false;
+  bool stateChanged;
   /*TODO: can extend the Subject interface to maintain the Observer list as well
     instead of delegating the responsibiliy to concrete class implementation */
 
  public:
   // main 3 methods for Publisher
-  virtual void registerObserver (Observer o) = 0;
-  virtual void removeObserver (Observer o) = 0;
-  virtual void notifyAllObservers (Subject subject, void* data) = 0;
+  Subject();
+  virtual void registerObserver (Observer *o) = 0;
+  virtual void removeObserver (Observer *o) = 0;
+  virtual void notifyAllObservers () = 0;
 
   //optional state management
   void setState ();
